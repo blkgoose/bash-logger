@@ -4,7 +4,7 @@ logfile="$0.log"
 loglevel="INFO"
 readonly levels="DEBUG INFO WARN ERROR"
 
-log() {
+logger.log() {
     timestamp=$(date +"%D %T")
     level="$1"
     message="$2"
@@ -15,25 +15,25 @@ log() {
         echo -e "$out" >> "$logfile"
 }
 
-is_valid() {
+logger.is_valid() {
     [[ $(echo $levels | grep -oP "$loglevel.*" ) =~ "$1" ]]
 }
 
 debug() {
-    is_valid "DEBUG" &&
-        log "DEBUG" "$1"
+    logger.is_valid "DEBUG" &&
+        logger.log "DEBUG" "$1"
 }
 info() {
-    is_valid "INFO" &&
-        log "INFO" "$1"
+    logger.is_valid "INFO" &&
+        logger.log "INFO" "$1"
 }
 warn() {
-    is_valid "WARN" &&
-        log "WARN" "$1"  >&2
+    logger.is_valid "WARN" &&
+        logger.log "WARN" "$1"  >&2
 }
 error() {
-    is_valid "ERROR" && {
-        log "ERROR" "$1" >&2
         exit
+    logger.is_valid "ERROR" && {
+        logger.log "ERROR" "$1" >&2
     }
 }
