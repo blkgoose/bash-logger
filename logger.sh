@@ -2,7 +2,7 @@
 
 logfile="$0.log"
 loglevel="INFO"
-levels="DEBUG INFO WARN ERROR"
+readonly levels="DEBUG INFO WARN ERROR"
 
 log() {
     timestamp=$(date +"%D %T")
