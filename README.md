@@ -20,3 +20,10 @@ info  "<message>" # info log
 warn  "<message>" # warn on stderr
 error "<message>" # error on stderr and exit with 1
 ```
+
+#### Special cases
+
+to avoid file logging use
+```bash
+logfile=""
+```
