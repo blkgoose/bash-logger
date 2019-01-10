@@ -32,8 +32,8 @@ warn() {
         logger.log "WARN" "$1"  >&2
 }
 error() {
-        exit
     logger.is_valid "ERROR" && {
         logger.log "ERROR" "$1" >&2
+        exit 1
     }
 }
