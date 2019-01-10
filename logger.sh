@@ -11,7 +11,8 @@ log() {
     out="$timestamp|$level|$message"
 
     echo -e "$level: $message"
-    echo -e "$out" >> "$logfile"
+    [[ -n "$logfile" ]] &&
+        echo -e "$out" >> "$logfile"
 }
 
 is_valid() {
