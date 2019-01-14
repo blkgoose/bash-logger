@@ -17,8 +17,8 @@ log "<level>" "<message>"
 ```bash
 debug "<message>" # debug log
 info  "<message>" # info log
-warn  "<message>" # warn on stderr
-error "<message>" # error on stderr and exit with 1
+warn  "<message>" # warn log
+error "<message>" # error log
 ```
 
 #### Special cases

@@ -10,7 +10,7 @@ logger.log() {
     message="$2"
     out="$timestamp|$level|$message"
 
-    echo -e "$level: $message"
+    echo -e "$level: $message" >&2
     [[ -n "$logfile" ]] &&
         echo -e "$out" >> "$logfile"
 }
@@ -29,11 +29,11 @@ info() {
 }
 warn() {
     logger.is_valid "WARN" &&
-        logger.log "WARN" "$1"  >&2
+        logger.log "WARN" "$1"
 }
 error() {
     logger.is_valid "ERROR" && {
-        logger.log "ERROR" "$1" >&2
+        logger.log "ERROR" "$1"
         exit 1
     }
 }
