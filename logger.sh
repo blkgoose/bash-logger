@@ -19,19 +19,19 @@ logger.is_valid() {
     [[ $(echo $levels | grep -oP "$loglevel.*" ) =~ "$1" ]]
 }
 
-debug() {
+logger.debug() {
     logger.is_valid "DEBUG" &&
         logger.log "DEBUG" "$1"
 }
-info() {
+logger.info() {
     logger.is_valid "INFO" &&
         logger.log "INFO" "$1"
 }
-warn() {
+logger.warn() {
     logger.is_valid "WARN" &&
         logger.log "WARN" "$1"
 }
-error() {
+logger.error() {
     logger.is_valid "ERROR" && {
         logger.log "ERROR" "$1"
         exit 1
