@@ -13,6 +13,8 @@ logger.log() {
     echo -e "$level: $message" >&2
     [[ -n "$logfile" ]] &&
         echo -e "$out" >> "$logfile"
+
+    return 0
 }
 
 logger.is_valid() {
