@@ -5,10 +5,10 @@ loglevel="INFO"
 readonly levels="DEBUG INFO WARN ERROR"
 
 logger.log() {
-    timestamp=$(date +"%D %T")
-    level="$1"
-    message="$2"
-    out="$timestamp|$level|$message"
+    local timestamp=$(date +"%D %T")
+    local level="$1"
+    local message="$2"
+    local out="$timestamp|$level|$message"
 
     echo -e "$level: $message" >&2
     [[ -n "$logfile" ]] &&
