@@ -22,20 +22,25 @@ logger.is_valid() {
 }
 
 logger.debug() {
-    logger.is_valid "DEBUG" &&
-        logger.log "DEBUG" "$1"
+    logger.is_valid "DEBUG"\
+    && logger.log "DEBUG" "$1"\
+    || true
 }
 logger.info() {
-    logger.is_valid "INFO" &&
-        logger.log "INFO" "$1"
+    logger.is_valid "INFO"\
+    && logger.log "INFO" "$1"\
+    || true
 }
 logger.warn() {
-    logger.is_valid "WARN" &&
-        logger.log "WARN" "$1"
+    logger.is_valid "WARN"\
+    && logger.log "WARN" "$1"\
+    || true
 }
 logger.error() {
-    logger.is_valid "ERROR" && {
+    logger.is_valid "ERROR"\
+    && {
         logger.log "ERROR" "$1"
         exit 1
-    }
+    }\
+    || true
 }
