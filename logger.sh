@@ -166,7 +166,7 @@ logger.log() {
     colorized_level=$(logger.colorize $color $level)
 
     echo -e "$colorized_level: $message" >&2
-    [[ -n "$logfile" ]] &&
+    [[ -n "${logfile:-}" ]] &&
         echo -e "$out" >> "$logfile"
 
     return 0
