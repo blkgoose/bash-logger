@@ -195,10 +195,11 @@ logger.warn() {
 }
 
 logger.error() {
+    local exitcode="${2:-1}"
     logger.is_valid "ERROR"\
     && {
         logger.log "ERROR" "$1" "$(logger.color.fg.red)"
-        exit 1
+        exit "${exitcode}"
     }\
     || true
 }
