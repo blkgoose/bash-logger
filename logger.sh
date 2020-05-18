@@ -152,7 +152,6 @@ logger.colorize() {
 }
 
 # logger
-logfile="$0.log"
 loglevel="INFO"
 readonly levels="DEBUG INFO WARN ERROR"
 
